@@ -9,16 +9,16 @@
 Deck::Deck() {
     // ORDER: spades, hearts, diamonds, clubs
     for (int i = 0; i < 13; i++) {
-        myCards[i] = Card(i, Card::spades);
+        myCards[i] = Card(i+1, Card::spades);
     }
     for (int i = 0; i < 13; i++) {
-        myCards[i] = Card(i, Card::hearts);
+        myCards[i] = Card(i+1, Card::hearts);
     }
     for (int i = 0; i < 13; i++) {
-        myCards[i] = Card(i, Card::diamonds);
+        myCards[i] = Card(i+1, Card::diamonds);
     }
     for (int i = 0; i < 13; i++) {
-        myCards[i] = Card(i, Card::clubs);
+        myCards[i] = Card(i+1, Card::clubs);
     }
 
     // current card to deal
