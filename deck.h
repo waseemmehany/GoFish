@@ -18,6 +18,7 @@
 
 #include "card.h"
 
+using namespace std;
 
 class Deck
 {
