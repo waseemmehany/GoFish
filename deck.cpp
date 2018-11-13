@@ -8,17 +8,16 @@
 // pristine, sorted deck
 Deck::Deck() {
     // ORDER: spades, hearts, diamonds, clubs
-    for (int i = 0; i < 13; i++) {
-        myCards[i] = Card(i+1, Card::spades);
-    }
-    for (int i = 0; i < 13; i++) {
-        myCards[i] = Card(i+1, Card::hearts);
-    }
-    for (int i = 0; i < 13; i++) {
-        myCards[i] = Card(i+1, Card::diamonds);
-    }
-    for (int i = 0; i < 13; i++) {
-        myCards[i] = Card(i+1, Card::clubs);
+    for (int i = 0; i < 52; i++) {
+        if (i < 13) {
+            myCards[i] = Card(i+1, Card::spades);
+        } else if (i >= 13 && i < 26) {
+            myCards[i] = Card(i-12, Card::hearts);
+        } else if (i >= 26 && i < 39) {
+            myCards[i] = Card(i-25, Card::diamonds);
+        } else if (i >= 39 && i < 52) {
+            myCards[i] = Card(i-38, Card::clubs);
+        }
     }
 
     // current card to deal
@@ -28,7 +27,12 @@ Deck::Deck() {
 
 // shuffle the cards in the current deck
 void Deck::shuffle() {
-
+    for (int i = 0; i < 52; i++) {
+        int random = rand() % 52;
+        Card c = myCards[i];
+        myCards[i] = myCards[random];
+        myCards[random] = c;
+    }
 }
 
 
